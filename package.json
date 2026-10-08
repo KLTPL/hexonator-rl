@@ -1,0 +1,15 @@
+{
+  "name": "hexonator-rl",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "concurrently -c \"cyan,magenta,yellow\" -n \"SHARED,API,WEB\" \"pnpm --filter @hexonator-rl/shared run dev\" \"pnpm --filter @hexonator-rl/api run start:dev\" \"pnpm --filter @hexonator-rl/web run dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@12.4.1"
+}

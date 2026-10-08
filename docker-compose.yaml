@@ -1,0 +1,27 @@
+services:
+  postgres:
+    image: postgres:15
+    restart: always
+    container_name: hexonator_rl_db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  ai:
+    build: ./apps/ai
+    container_name: hexonator_rl_ai
+    command: uvicorn main:app --host 0.0.0.0 --port 5000 --reload
+    ports:
+      - "5000:5000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./apps/ai:/app
+
+volumes:
+  postgres_data:
