@@ -18,5 +18,5 @@ model User {
   name           String   @db.VarChar(20)
   hashedPassword String
   createdAt      DateTime @default(now()) @db.Timestamp()
-  updatedAu      DateTime @updatedAt
+  updatedAt      DateTime @updatedAt
 }
